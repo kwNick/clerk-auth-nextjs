@@ -21,7 +21,9 @@ export default function RootLayout({
       <html lang="en">
         <body className={inter.className + "w-full min-h-screen"}>
           <Nav />
-          {children}
+          <main className="max-w-2xl m-auto pt-10 flex flex-col items-center ring-1">
+            {children}
+          </main>
         </body>
       </html>
     </ClerkProvider>
