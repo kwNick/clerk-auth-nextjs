@@ -1,4 +1,6 @@
+import { NavList } from '@/constants'
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
+import Link from 'next/link'
 import React from 'react'
 
 const Nav = () => {
@@ -11,8 +13,16 @@ const Nav = () => {
                 <SignedOut>
                     <SignInButton />
                 </SignedOut>
-                <SignedIn>
-                    <UserButton />
+                <SignedIn >
+                    <div className="px-8 py-4 flex ring-1">
+                        <UserButton />
+                        {NavList.map((x: { title: string; }) => (
+                            <Link href={`/${x.title}`} key={x.title} className='p-4'>
+                                {x.title}
+                            </Link>
+                        ))}
+                    </div>
+
                 </SignedIn>
             </div>
             <div className=''>
